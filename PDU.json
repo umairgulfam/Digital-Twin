@@ -1,0 +1,14 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:PDU;1",
+  "@type": "Interface",
+  "displayName": "PDU",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "capacityKw", "schema": "double", "writable": true },
+    { "@type": "Telemetry", "name": "powerKw", "schema": "double" },
+    { "@type": "Telemetry", "name": "currentA", "schema": "double" },
+    { "@type": "Property", "name": "currentPowerKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "utilisationPct", "schema": "double", "writable": true }
+  ]
+}

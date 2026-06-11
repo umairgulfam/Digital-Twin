@@ -1,0 +1,32 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:CRACUnit;1",
+  "@type": "Interface",
+  "displayName": "CRAC unit",
+  "description": "Computer room air conditioner. Removes heat from the room.",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "ratedCoolingKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "setpointC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "airflowCfm", "schema": "double", "writable": true },
+
+    { "@type": "Telemetry", "name": "supplyTempC", "schema": "double" },
+    { "@type": "Telemetry", "name": "returnTempC", "schema": "double" },
+    { "@type": "Telemetry", "name": "powerKw", "schema": "double" },
+
+    { "@type": "Property", "name": "currentSupplyTempC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "coolingDeliveredKw", "schema": "double", "writable": true },
+    {
+      "@type": "Property", "name": "operatingState", "writable": true,
+      "schema": {
+        "@type": "Enum", "valueSchema": "string",
+        "enumValues": [
+          { "name": "running", "enumValue": "running" },
+          { "name": "standby", "enumValue": "standby" },
+          { "name": "failed", "enumValue": "failed" }
+        ]
+      }
+    },
+    { "@type": "Relationship", "name": "cools", "target": "dtmi:roomtwin:ServerRoom;1" }
+  ]
+}

@@ -1,0 +1,98 @@
+room:
+  id: server-room-a
+  displayName: Server Room A
+  floorAreaM2: 45.0
+  designCapacityKw: 40.0
+  setpointC: 22.0
+  ashraeClass: A1
+  thermalMassKjPerK: 3500.0
+  ambientStartC: 22.0
+  humidityPct: 45.0
+
+racks:
+  - id: rack-01
+    aisle: cold
+    positionX: 1.0
+    positionY: 1.0
+    uHeight: 42
+    maxInletTempC: 27.0
+    shutdownTempC: 35.0
+    airflowCfm: 950.0
+    recirculationFactor: 0.15
+    pdu: { id: pdu-01, capacityKw: 8.0 }
+    sensors:
+      - { id: temp-01-in, placement: inlet }
+      - { id: temp-01-out, placement: outlet }
+    servers:
+      - { id: srv-01a, hostname: db-primary, ratedPowerKw: 1.4, uSize: 2, baseUtilPct: 62 }
+      - { id: srv-01b, hostname: db-replica, ratedPowerKw: 1.4, uSize: 2, baseUtilPct: 41 }
+      - { id: srv-01c, hostname: app-01, ratedPowerKw: 0.9, uSize: 1, baseUtilPct: 35 }
+
+  - id: rack-02
+    aisle: cold
+    positionX: 2.0
+    positionY: 1.0
+    uHeight: 42
+    maxInletTempC: 27.0
+    shutdownTempC: 35.0
+    airflowCfm: 900.0
+    recirculationFactor: 0.22
+    pdu: { id: pdu-02, capacityKw: 8.0 }
+    sensors:
+      - { id: temp-02-in, placement: inlet }
+      - { id: temp-02-out, placement: outlet }
+    servers:
+      - { id: srv-02a, hostname: gpu-train-01, ratedPowerKw: 2.6, uSize: 4, baseUtilPct: 78 }
+      - { id: srv-02b, hostname: gpu-train-02, ratedPowerKw: 2.6, uSize: 4, baseUtilPct: 74 }
+
+  - id: rack-03
+    aisle: hot
+    positionX: 1.0
+    positionY: 2.0
+    uHeight: 42
+    maxInletTempC: 27.0
+    shutdownTempC: 35.0
+    airflowCfm: 800.0
+    recirculationFactor: 0.34
+    pdu: { id: pdu-03, capacityKw: 8.0 }
+    sensors:
+      - { id: temp-03-in, placement: inlet }
+      - { id: temp-03-out, placement: outlet }
+    servers:
+      - { id: srv-03a, hostname: storage-01, ratedPowerKw: 1.8, uSize: 4, baseUtilPct: 55 }
+      - { id: srv-03b, hostname: storage-02, ratedPowerKw: 1.8, uSize: 4, baseUtilPct: 52 }
+      - { id: srv-03c, hostname: backup-01, ratedPowerKw: 1.1, uSize: 2, baseUtilPct: 28 }
+
+  - id: rack-04
+    aisle: hot
+    positionX: 2.0
+    positionY: 2.0
+    uHeight: 42
+    maxInletTempC: 27.0
+    shutdownTempC: 35.0
+    airflowCfm: 850.0
+    recirculationFactor: 0.28
+    pdu: { id: pdu-04, capacityKw: 8.0 }
+    sensors:
+      - { id: temp-04-in, placement: inlet }
+      - { id: temp-04-out, placement: outlet }
+    servers:
+      - { id: srv-04a, hostname: k8s-node-01, ratedPowerKw: 1.2, uSize: 2, baseUtilPct: 48 }
+      - { id: srv-04b, hostname: k8s-node-02, ratedPowerKw: 1.2, uSize: 2, baseUtilPct: 44 }
+
+crac:
+  - id: crac-01
+    ratedCoolingKw: 16.0
+    setpointC: 18.0
+    airflowCfm: 3000.0
+    powerKwAtFull: 6.5
+  - id: crac-02
+    ratedCoolingKw: 16.0
+    setpointC: 18.0
+    airflowCfm: 3000.0
+    powerKwAtFull: 6.5
+
+ups:
+  id: ups-01
+  capacityKwh: 18.0
+  ratedPowerKw: 40.0

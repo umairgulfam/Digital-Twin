@@ -1,0 +1,14 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:TemperatureSensor;1",
+  "@type": "Interface",
+  "displayName": "Temperature sensor",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "placement", "schema": "string", "writable": true },
+    { "@type": "Telemetry", "name": "temperatureC", "schema": "double" },
+    { "@type": "Telemetry", "name": "humidityPct", "schema": "double" },
+    { "@type": "Property", "name": "lastReadingC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "lastHumidityPct", "schema": "double", "writable": true }
+  ]
+}

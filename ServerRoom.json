@@ -1,0 +1,40 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:ServerRoom;1",
+  "@type": "Interface",
+  "displayName": "Server room",
+  "description": "Root twin. Owns room-level state and the derived facility metrics.",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "floorAreaM2", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "designCapacityKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "setpointC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "ashraeClass", "schema": "string", "writable": true },
+
+    { "@type": "Telemetry", "name": "ambientTempC", "schema": "double" },
+    { "@type": "Telemetry", "name": "ambientHumidityPct", "schema": "double" },
+    { "@type": "Telemetry", "name": "doorOpen", "schema": "boolean" },
+
+    { "@type": "Property", "name": "currentAmbientTempC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "itLoadKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "facilityLoadKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "pue", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "coolingHeadroomKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "hottestRackId", "schema": "string", "writable": true },
+    {
+      "@type": "Property", "name": "status", "writable": true,
+      "schema": {
+        "@type": "Enum", "valueSchema": "string",
+        "enumValues": [
+          { "name": "nominal", "enumValue": "nominal" },
+          { "name": "warning", "enumValue": "warning" },
+          { "name": "critical", "enumValue": "critical" }
+        ]
+      }
+    },
+
+    { "@type": "Relationship", "name": "contains", "target": "dtmi:roomtwin:Asset;1" },
+    { "@type": "Relationship", "name": "cooledBy", "target": "dtmi:roomtwin:CRACUnit;1" },
+    { "@type": "Relationship", "name": "backedBy", "target": "dtmi:roomtwin:UPS;1" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:Server;1",
+  "@type": "Interface",
+  "displayName": "Server",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "hostname", "schema": "string", "writable": true },
+    { "@type": "Property", "name": "ratedPowerKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "uSize", "schema": "integer", "writable": true },
+
+    { "@type": "Telemetry", "name": "cpuUtilPct", "schema": "double" },
+    { "@type": "Telemetry", "name": "powerKw", "schema": "double" },
+    { "@type": "Telemetry", "name": "intakeTempC", "schema": "double" },
+
+    { "@type": "Property", "name": "currentCpuUtilPct", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "currentPowerKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "throttling", "schema": "boolean", "writable": true }
+  ]
+}

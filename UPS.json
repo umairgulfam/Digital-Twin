@@ -1,0 +1,19 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:UPS;1",
+  "@type": "Interface",
+  "displayName": "UPS",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "capacityKwh", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "ratedPowerKw", "schema": "double", "writable": true },
+
+    { "@type": "Telemetry", "name": "loadKw", "schema": "double" },
+    { "@type": "Telemetry", "name": "batteryPct", "schema": "double" },
+    { "@type": "Telemetry", "name": "onBattery", "schema": "boolean" },
+
+    { "@type": "Property", "name": "currentLoadKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "currentBatteryPct", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "runtimeRemainingMin", "schema": "double", "writable": true }
+  ]
+}

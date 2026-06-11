@@ -1,0 +1,33 @@
+{
+  "@context": ["dtmi:dtdl:context;3"],
+  "@id": "dtmi:roomtwin:Rack;1",
+  "@type": "Interface",
+  "displayName": "Rack",
+  "description": "A single rack. Delta-T and thermal margin are computed, not measured.",
+  "extends": "dtmi:roomtwin:Asset;1",
+  "contents": [
+    { "@type": "Property", "name": "uHeight", "schema": "integer", "writable": true },
+    { "@type": "Property", "name": "positionX", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "positionY", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "aisle", "schema": "string", "writable": true },
+    { "@type": "Property", "name": "maxInletTempC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "shutdownTempC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "airflowCfm", "schema": "double", "writable": true },
+
+    { "@type": "Telemetry", "name": "inletTempC", "schema": "double" },
+    { "@type": "Telemetry", "name": "outletTempC", "schema": "double" },
+    { "@type": "Telemetry", "name": "humidityPct", "schema": "double" },
+    { "@type": "Telemetry", "name": "powerKw", "schema": "double" },
+
+    { "@type": "Property", "name": "currentInletTempC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "currentOutletTempC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "currentPowerKw", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "deltaTC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "thermalMarginC", "schema": "double", "writable": true },
+    { "@type": "Property", "name": "hotspotRank", "schema": "integer", "writable": true },
+    { "@type": "Property", "name": "ashraeCompliant", "schema": "boolean", "writable": true },
+
+    { "@type": "Relationship", "name": "contains", "target": "dtmi:roomtwin:Asset;1" },
+    { "@type": "Relationship", "name": "poweredBy", "target": "dtmi:roomtwin:PDU;1" }
+  ]
+}

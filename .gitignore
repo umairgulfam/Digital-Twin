@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+
+# never commit a real room's layout — see PUBLISHING.md
+config/*.local.yaml
